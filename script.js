@@ -15,7 +15,7 @@ const li = document.querySelectorAll("li");
 
 
 cores.map((cor,i) => {
-  if(li[lista]) {
+  if(li[i]) {
             li[i].style.backgroundColor = cor;
   }
 
@@ -93,25 +93,20 @@ listarPares();
 // EX4
 
 
-function juntarDivs ( ) {
+function juntarDivs() {
+  const divs = document.querySelectorAll("div");
 
-    const divs = document.querySelectorAll("div");
+  const textoTotal = [...divs].reduce((acc, div) => {
+    return acc.concat(div.textContent);
+  }, "");
 
-    const textoTotal = [...divs].reduce((acc,div) => {
-
-        return acc.concat("" + div.textContent);
-
-    }, "");
-
-
-    const p = document.createElement("p");
-    p.textContent = textoTotal;
-    document.body.appendChild(p);
-
-
+  const p = document.createElement("p");
+  p.textContent = textoTotal;
+  document.body.appendChild(p);
 }
 
 juntarDivs();
+
 
 
 // EX 5
@@ -169,8 +164,9 @@ function calcularEstoque() {
 
     const p = document.createElement("p");
 
-    p.textContent = `Valor total do estoque (quantida > 5): R$ ${total}`
+    p.textContent = `Valor total do estoque (quantidade > 5): R$ ${total}`
     document.body.appendChild(p);
 }
 
 calcularEstoque();
+
