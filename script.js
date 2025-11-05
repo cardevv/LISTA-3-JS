@@ -29,7 +29,62 @@ mudaCor(cores);
 // EX 2
 
 
+function unfold(seed, func) {
+  const result = [];
+  let value = seed;
+
+  while (value <= 1024) {
+    result.push(value);
+    value = func(value);
+  }
+
+  return result;
+}
+
+function gerarLista() {
+  const numeros = unfold(1, n => n * 2);
+
+ 
+  const ul = document.createElement("ul");
+
+  numeros.map(num => {
+    const li = document.createElement("li");
+    li.textContent = num;
+    ul.appendChild(li);
+  });
+
+  document.body.appendChild(ul);
+}
+
+gerarLista();
+
+
+
 // EX3
+
+function unfoldLista() {
+  const lista = [];
+  for (let i = 1; i <= 50; i++) lista.push(i);
+  return lista;
+}
+
+function listarPares() {
+  const numeros = unfoldLista();
+  const pares = numeros.filter(n => n % 2 === 0);
+
+  const ul = document.createElement("ul");
+
+  pares.forEach(num => {
+    const li = document.createElement("li");
+    li.textContent = num;
+    ul.appendChild(li);
+  });
+
+  document.body.appendChild(ul);
+}
+
+listarPares();
+
 
 
 
